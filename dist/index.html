@@ -1,0 +1,283 @@
+<html>
+<head>
+    <link href="browser-base.css" rel="stylesheet" />
+    <style>
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+	    font: caption;
+	    user-select: none;
+	    -webkit-user-select: none;
+	    cursor: default;
+        }
+
+	.resizing, .resizing * {
+	    cursor: nwse-resize !important;	
+	}
+	input {
+	    width: 100%;
+	    flex: 1;
+	}
+	.handle.y {
+	   height: 4px;
+	   cursor: ns-resize;
+	   transform: none !important;
+	}
+	.handle.x {
+	   width: 4px;
+	   cursor: ew-resize;
+	   transform: none !important;
+	}
+	.handle:hover {
+	   background-color: darkgray;
+	}
+	.QWidget {
+	    display: inline-flex;
+	    flex: 0;
+	}
+	.QModelIndex {
+	    height: 25px;
+	    display: flex;
+	    padding-left: 5px;
+	    align-items: center;
+	}
+	.QModelIndex.selected {
+            background-color: lightsteelblue;
+	    color: white;
+        }
+	.DecorationRole {
+	    height: 20px;
+	}
+	.DisplayRole {
+	    padding-left: 5px;
+	    height: 19px;
+	    flex: 1;
+	    font-size: 20px;
+	}
+	.QModelIndex>.arrow {
+	    color: #B8B5B2;
+    	    padding-right: 5px;
+	    font-size: 12px;	
+	}
+	.QModelIndex.selected>.arrow {
+	    color: white;	
+	}
+	.QMenu {
+		/* #2D2D2D*/
+	    background-color: #DEDEDE;
+	    width: 200px;
+	    
+	    position: absolute;
+	    left: -1px;
+	    border: 1px solid darkgray;
+	    top: 18px;
+	}
+        .QMenu>.QAction {
+	    padding: 2px;
+	    padding-left: 10px;
+	    
+	}
+	.QMenu>.QAction>.text>.shortcut {
+		float: right;
+		color: gray;
+	}
+	.QMenu>.QAction:hover {
+	    background-color: darkgray;
+	}
+	
+	.MenuBarArea {
+	    color: #555559;
+	    padding-top: 6px;
+	    text-weight: 700;	
+	}
+	.MenuBarButton {
+	    position: relative;
+	    padding-left: 5px;
+	    padding-right: 5px;
+	}
+	.MenuBarButton.open {
+	    background-color: darkgray;
+	    border: 1px solid gray;
+	}
+        .QVBoxLayout {
+            display: flex;
+            flex-direction: column;
+	    flex: initial;
+        }
+        .QHBoxLayout {
+            display: flex;
+	    flex: initial;
+        }
+        .QMainWindow {
+	    min-width: 300px;
+	    min-height: 300px;
+	    top: 50px;
+	    position: absolute;
+            width: 1200px;
+            height: 600px;
+	    border: 1px solid black;
+	    box-shadow: 0px 0px 10px #888888;
+	    display: flex;
+	    flex-direction: column;
+	    background-color: #DEDEDE;
+        }
+        .LeftDockArea {
+	    background-color: #A2B0B8;
+        }
+        .RightDockArea {
+        }
+        .BottomDockArea{
+            height: 200px;
+        }
+        .MiddleArea {
+            flex: 1;
+            flex-direction: column;
+            display: flex;
+        }
+        .CentralArea {
+            flex: 1;
+	    display: flex;
+	    background-color: white;
+        }
+	.CentralArea>.QHboxLayout,.CentralArea>.QHBoxLayout>:nth-child(2){
+	    width: 100%;
+	}
+	.StatusBarArea{
+		height: 30px;
+		display: flex;
+		align-items: center;
+	}
+	.QStatusBar {
+		padding-left: 5px;
+		display: flex;
+		align-items: center;
+	}
+	.statusbar-img{
+		height: 15px;
+		padding-right: 5px;
+	}
+	.statusbar-text {
+		font-size: 20px;	
+	}
+	.QStatusBar>.shortcut {
+		color: gray;
+		padding-left: 10px;
+		height: 14px;
+	}
+	.QStackedWidget, input{
+	    background-color: #E8E8E8;
+	}
+        .MainArea {
+            height: 100%;
+            display: flex;
+            flex-wrap: nowrap;
+        }
+        .ToolBarArea {
+            display: flex;
+	    background-color: #DEDEDE;
+	    /*padding: 5px 5px 4px 5px;*/
+	    height: 50px;
+        }
+        .QToolBar {
+	    overflow: hidden;
+            margin-left: 10px;
+            display: flex;
+            align-items: center;
+	    background-color: #DEDEDE;
+        }
+        .QToolButton {
+	    overflow: hide;
+            margin-left: 0px;
+	    padding: 5px 5px 5px 5px;
+            display: inline-block;
+	    border-radius: 3px;
+	    border: 1px solid #DEDEDE;
+	    
+        }
+	.QToolButton:hover {
+	    background-color: lightgray;
+	    border: 1px solid gray;
+	}
+	.QToolButton:active {
+	    background-color: darkgray;
+	    border: 1px solid gray;
+	}
+        .QToolButton>.QIcon {
+            margin-left: auto;
+            margin-right: auto;
+	    width: 16px;
+	    height: auto;
+            display: block;
+	        
+        }
+	.QToolButton>.text {
+	    text-transform: uppercase;
+	    color: #555559;
+	    white-space: nowrap;
+	    padding-top: 3px;
+	    height: 18px;
+	}
+	.separator {
+	    height: 100%;
+	    border-left: 1px solid #C3C3C3;
+	    border-right: 1px solid #EFEFEF;
+	}
+	.separator-horizontal {
+	    width: 100%;
+	    border-top: 1px solid #C3C3C3;
+	    border-bottom: 1px solid #EFEFEF;
+	}
+        .QColumnView {
+            display: flex;
+	    background-color: white;
+	    flex: 1;
+	    border: 1px solid gray;
+	    
+        }
+        .QColumnView>.QListView {
+            display: inline-table;
+	    width: 200px;
+	    
+        }
+
+
+[data-tooltip]:before {
+    /* needed - do not touch */
+    content: attr(data-tooltip);
+    position: absolute;
+    opacity: 0;
+    
+    /* customizable */
+    transition: all 0.15s ease;
+    transition-delay: 0.5s;
+    padding: 1px;
+    color: #333;
+    border-radius: 5px;
+    padding: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;    
+}
+
+[data-tooltip]:hover:before {
+    /* needed - do not touch */
+    opacity: 1;
+    
+    /* customizable */
+    background: darkgray;
+    margin-top: -30px;
+    margin-left: 0px;    
+}
+
+[data-tooltip]:not([tooltip-persistent]):before {
+    pointer-events: none;
+}
+        
+    </style>
+</head>
+<body>
+<div id="content"></div>
+</body>
+<script src="vortex-min.js"></script>
+</html>
+
